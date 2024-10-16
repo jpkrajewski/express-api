@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Lorem Ipsum Generator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Form Section -->
+            <div class="col-md-6">
+                <h1 class="mb-4">Generate Your Lorem Ipsum</h1>
+                <form action="/loremipsum" method="POST" id="loremForm">
+                    <!-- Integer input -->
+                    <div class="form-group">
+                        <label for="integer">Number of Paragraphs:</label>
+                        <input type="number" class="form-control" id="integer" name="integer" value="5" min="1" required>
+                    </div>
+
+                    <!-- Short input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="short" name="short">
+                        <label class="form-check-label" for="short">Short Version</label>
+                    </div>
+
+                    <!-- Decorate input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="decorate" name="decorate">
+                        <label class="form-check-label" for="decorate">Decorate (Bold/Italic)</label>
+                    </div>
+
+                    <!-- Link input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="link" name="link">
+                        <label class="form-check-label" for="link">Add Links</label>
+                    </div>
+
+                    <!-- Unordered List input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="ul" name="ul">
+                        <label class="form-check-label" for="ul">Unordered List (UL)</label>
+                    </div>
+
+                    <!-- Ordered List input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="ol" name="ol">
+                        <label class="form-check-label" for="ol">Ordered List (OL)</label>
+                    </div>
+
+                    <!-- Definition List input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="dl" name="dl">
+                        <label class="form-check-label" for="dl">Definition List (DL)</label>
+                    </div>
+
+                    <!-- Blockquote input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="bq" name="bq">
+                        <label class="form-check-label" for="bq">Blockquote</label>
+                    </div>
+
+                    <!-- Code block input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="code" name="code">
+                        <label class="form-check-label" for="code">Code Block</label>
+                    </div>
+
+                    <!-- Headers input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="headers" name="headers">
+                        <label class="form-check-label" for="headers">Add Headers</label>
+                    </div>
+
+                    <!-- All Caps input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="allcaps" name="allcaps">
+                        <label class="form-check-label" for="allcaps">All Caps</label>
+                    </div>
+
+                    <!-- Prude Mode input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="prude" name="prude">
+                        <label class="form-check-label" for="prude">Prude Mode (Filter Offensive Words)</label>
+                    </div>
+
+                    <!-- Plaintext input -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="plaintext" name="plaintext">
+                        <label class="form-check-label" for="plaintext">Plain Text (No HTML)</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Generate Lorem Ipsum</button>
+                </form>
+            </div>
+
+            <!-- Result Section -->
+            <div class="col-md-6">
+                <h2 class="mb-4">Result</h2>
+                <div id="result" class="border p-3 bg-light" style="min-height: 300px;">
+                    <!-- The generated lorem ipsum text will be injected here -->
+                    <% if (locals.content) { %>
+                        <div><%- content %></div>
+                    <% } else { %>
+                        <p>Generated content will appear here after submission.</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
